@@ -1,13 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,Text , View , TextInput ,Button} from "react-native";
+import { StyleSheet,Text , View , TextInput ,Button,Image,Pressable} from "react-native";
 import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import {Calendar} from 'react-native-calendars';
 
-function SignUp () {
+function SignUp ({navigation}) {
+    
+    
 return(
      <View style={styles.container} >
 
      <View style={styles.upperContainer}>
-         <Text style={styles.title}> eBooks </Text>
+     <Image
+         style={styles.tinyLogo}
+        source={require('../../assets/ebook.png')}
+
+       />
      </View>
 
      <View style={styles.midContainer}>
@@ -55,21 +62,31 @@ return(
          secureTextEntry={true}
          />
 
-           <Button
-            color="green" //button color
-            borderRadius="40"
-            title="SignUp"
-          />
+           <Pressable style={styles.button}>
+
+               <Text style={styles.text}>SignUp</Text>
+               
+
+           </Pressable>
+           <View style={styles.linkView}>
+           <Text > Have Account ? </Text>
+           <Pressable onPress={()=>{navigation.goBack()}}>
+           <Text style={styles.linkscreen} >Login</Text>
+           
+           </Pressable>
+           
+           
+           </View>
+     </View>
+
+       <View style={styles.bottomContainer}>
+
+          <Text style={styles.text} >&copy; eBooks 2022</Text>
           
-     </View>
-
-     <View style={styles.bottomContainer}>
-
-         <Text style={styles.text} >&copy; eBooks 2022</Text>
+    
 
 
-
-     </View>
+     </View>  
      </View>
 
 );
@@ -81,14 +98,13 @@ const styles = StyleSheet.create({
 container : {
     flex:1,
     backgroundColor: 'green',
-    marginTop:50
 },
 
 upperContainer : {
     flex:1,
     justifyContent : 'flex-end',
     alignItems:'center',
-    marginTop:10
+    marginTop:30
     
     
 },
@@ -99,7 +115,7 @@ title:{
     fontSize:30
 },
 midContainer : {
-    flex:4,
+    flex:6,
     backgroundColor:"#fff",
     padding : 20,
     borderRadius:20,
@@ -112,7 +128,7 @@ inputt:{
     alignContent:'center',
     borderRadius:15,
     paddingLeft:20,
-    marginBottom:30
+    marginBottom:20
 },
 input:{
     borderWidth:1,
@@ -125,7 +141,7 @@ bottomContainer :{
     flex:1,
     backgroundColor:"green",
     alignItems:'center',
-    marginBottom:10
+    
     
 },
 
@@ -134,12 +150,38 @@ text:{
     alignContent:'center',
     
 },
+button:{
+    backgroundColor:"green",
+    height:50,
+    borderRadius:15,
+    alignItems: 'center',
+    paddingVertical: 12,
+},
 
 allabel:{
     paddingLeft:10,
     marginTop:10,
     marginBottom:10
 },
+
+tinyLogo:{
+    width: 100,
+    height: 100,
+    borderWidth:2,
+    borderColor:"#fff",
+    borderRadius:45
+},
+linkView:{
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'center',
+      
+
+},
+linkscreen:{
+    color:"green"
+    
+  }
 
 
 });

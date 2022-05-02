@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,Text , View , TextInput ,Button, Image} from "react-native";
+import { StyleSheet,Text , View , TextInput ,Button, Image,Pressable} from "react-native";
 import { circle } from 'react-native/Libraries/Animated/Easing';
 import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import React from 'react';
 
-function Login () {
+
+function Login ({navigation}) {
+    
 return(
      <View style={styles.container} >
 
@@ -41,16 +44,24 @@ return(
          secureTextEntry={true}
          />
 
-           <Button
-            color="green" //button color
-            borderRadius="40"
-            title="Login"
-          />
+           <Pressable style={styles.button} onPress={()=>{ navigation.navigate("Login")}}>
+               <Text style={styles.text}>Login</Text>
+
+           </Pressable>
+           <View style={styles.linkView}>
+           <Text >Don't have account?</Text>
+
+            <Pressable onPress={()=>{ navigation.navigate("Signup",{username:"Faizan Ali", Age:20 , FatherN:"Amir Haider"})}}>
+           <Text style={styles.linkscreen}>SignUp</Text>
+           </Pressable>
+           </View>
+           
+           
      </View>
 
      <View style={styles.bottomContainer}>
 
-         <Text style={styles.text} >&copy; eBooks 2022</Text>
+         {/* <Text style={styles.text} >&copy; eBooks 2022</Text> */}
 
 
 
@@ -66,14 +77,14 @@ const styles = StyleSheet.create({
 container : {
     flex:1,
     backgroundColor: 'green',
-    marginTop:50
+    
 },
 
 upperContainer : {
     flex:1,
     justifyContent : 'flex-end',
     alignItems:'center',
-    marginTop:10
+    
     
     
 },
@@ -116,7 +127,8 @@ bottomContainer :{
 
 text:{
     color:'#fff',
-    alignContent:'center',
+    alignItems:'center'
+    
     
 },
 
@@ -131,9 +143,35 @@ tinyLogo: {
     height: 120,
     borderWidth:2,
     borderColor:"#fff",
+    borderRadius:45
   },
 
+  button:{
+    backgroundColor:"green",
+    height:50,
+    borderRadius:15,
+    alignItems: 'center',
+    paddingVertical: 12,
 
+  },
+
+  linkscreen:{
+    color:"green"
+    
+  },
+
+  linkView:{
+      flex:1,
+      flexDirection:'row',
+      justifyContent:'center',
+      marginTop:20
+
+      
+      
+
+  }
+
+ 
 
 });
 

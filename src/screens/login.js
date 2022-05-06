@@ -44,7 +44,7 @@ return(
          secureTextEntry={true}
          />
 
-           <Pressable style={styles.button} onPress={()=>{ navigation.navigate("Login")}}>
+           <Pressable style={styles.button} onPress={()=>{ navigation.navigate("HomeS")}}>
                <Text style={styles.text}>Login</Text>
 
            </Pressable>

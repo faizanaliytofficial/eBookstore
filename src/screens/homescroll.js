@@ -1,28 +1,29 @@
 import  React from "react";
 import { View,Text , ScrollView,Image} from "react-native";
-import { ImageBackground } from "react-native-web";
-import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 function Homescroll(){
    
    return(
         <ScrollView style={{backgroundColor:"white" }}>
         <>
-        <View 
-            style={{
-                height: 300,
-                width :"100%",
-                backgroundColor:"green"
+        
+        <View>
+        <Image
+         style={{
+            height: 300,
+            width :"100%",
+            backgroundColor:"white",
+            resizeMode:"contain"
+        
             
-                
-            }
-            }
-            >
-         <Image
+        }}
+        source={{
+            uri: 'https://cdn.pixabay.com/photo/2022/03/04/20/53/city-7048002_960_720.jpg',
+          }}
+
+       />
+    </View>
          
-         source={uri:"https://cdn.pixabay.com/photo/2022/03/04/20/53/city-7048002_960_720.jpg"}
-
-            </View>
 
         
         
@@ -34,7 +35,7 @@ function Homescroll(){
 
         
             
-        />
+        
 
         <View 
             style={{

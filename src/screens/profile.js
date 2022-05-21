@@ -1,18 +1,38 @@
 import { useState } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Image } from "react-native";
 
 const Profile = ({ route }) => {
   const [count, setCount] = useState(0);
   const [show, setShow] = useState(false);
 
-  const { baseCount, Name } = route.params;
+  const { userDetails } = route.params;
 
   return (
+    //Practice Code
     <View>
-      <Text style={{ fontSize: 30, alignSelf: "center" }}>{baseCount}</Text>
-      <Text style={{ fontSize: 30, alignSelf: "center" }}>{Name}</Text>
+      <Image
+        source={{ uri: userDetails.avatar_url }}
+        style={{
+          width: 80,
+          height: 80,
+          borderRadius: 20,
+          alignSelf: "center",
+          margin: 10,
+        }}
+      />
+      <Text
+        style={{
+          textTransform: "uppercase",
+          fontSize: 20,
+          textAlign: "center",
+          backgroundColor: "black",
+          color: "white",
+        }}
+      >
+        {userDetails.login}
+      </Text>
 
-      <Button
+      {/* {/* {/* <Button
         onPress={() => {
           // const inc = count + 1
           // setCount(inc)
@@ -41,8 +61,8 @@ const Profile = ({ route }) => {
           title={"Decrease"}
         />
       ) : (
-        <View />
-      )}
+        <View /> 
+      )} */}
     </View>
   );
 };

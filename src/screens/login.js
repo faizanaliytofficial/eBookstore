@@ -43,7 +43,7 @@ function Login({ navigation }) {
         <Pressable
           style={styles.button}
           onPress={() => {
-            navigation.navigate("HomeS");
+            navigation.replace("ApiFetcher");
           }}
         >
           <Text style={styles.text}>Login</Text>
